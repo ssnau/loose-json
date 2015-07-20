@@ -43,3 +43,15 @@ it('should parse literal', function () {
     assert.equal(void 0, parse('undefined'));
     assert.equal(void 0, parse('void 0'));
 });
+
+it('should allow comments', function() {
+    var x = parse(`
+    {
+        /* hello world*/
+        name: "jack" // comment here
+    }
+    `);
+
+    assert.deepEqual(x, {name: 'jack'});
+
+});
