@@ -1,0 +1,33 @@
+{
+  "name": "loose-json",
+  "version": "1.0.0",
+  "description": "a very loose yet safe json parser",
+  "main": "index.js",
+  "directories": {
+    "test": "test"
+  },
+  "dependencies": {
+    "esprima": "^2.4.1"
+  },
+  "devDependencies": {
+    "mocha": "^2.2.5"
+  },
+  "scripts": {
+    "test": "mocha"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ssnau/loose-json.git"
+  },
+  "keywords": [
+    "json",
+    "parser",
+    "loose"
+  ],
+  "author": "ssnau",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/ssnau/loose-json/issues"
+  },
+  "homepage": "https://github.com/ssnau/loose-json"
+}
