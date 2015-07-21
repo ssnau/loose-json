@@ -1,3 +1,7 @@
+require('blanket')({
+    pattern: 'index',
+    "data-cover-never": ['node_modules', 'test']
+});
 var parse = require('..');
 var assert = require('assert');
 it('should parse loose', function () {
