@@ -55,3 +55,9 @@ it('should allow comments', function() {
     assert.deepEqual(x, {name: 'jack'});
 
 });
+
+it('empty string parse should throw', function () {
+    assert.throws(function() {
+        parse('');
+    });
+});
