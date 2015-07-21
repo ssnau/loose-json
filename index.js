@@ -6,6 +6,10 @@ var assert = {
     }
 };
 
+function replaceAll(find, replace, str) {
+      return str.replace(new RegExp(find, 'g'), replace);
+}
+
 module.exports = function (code) {
     try {
         var j = JSON.parse(code);
@@ -24,7 +28,12 @@ module.exports = function (code) {
 
         var expression = ast.body[0].expression;
         var str = JSON.stringify(expression);
+        // Identifier: 不能有变量引用
+        // FE, CF: 不能有函数声明和函数调用
+        // VD: 不能有变量声明
         var isMalformed = /FunctionExpression|CallExpression|VariableDeclaration/.test(str);
+        var str2 = replaceAll('{"type":"Property","key":{"type":"Identifier"', '', str);
+        isMalformed = isMalformed || /Identifier/.test(str2);
         if (isMalformed) throw new Error('malformed JSON');
         // an safer eval
         var ev = eval;

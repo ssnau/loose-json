@@ -40,8 +40,8 @@ it('should parse literal', function () {
     assert.equal(false, parse('false'));
     assert.equal(0, parse('0'));
     assert.equal(null, parse('null'));
-    assert.equal(void 0, parse('undefined'));
     assert.equal(void 0, parse('void 0'));
+
 });
 
 it('should allow comments', function() {
@@ -59,5 +59,14 @@ it('should allow comments', function() {
 it('empty string parse should throw', function () {
     assert.throws(function() {
         parse('');
+    });
+});
+
+it('variable is not allowed', function () {
+    assert.throws(function(){
+        var x = parse('process');
+    });
+    assert.throws(function(){
+        parse('undefined');
     });
 });
